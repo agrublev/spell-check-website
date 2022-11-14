@@ -1,0 +1,40 @@
+{
+    "name": "spell-check-website",
+    "version": "1.1.1",
+    "description": "Easily check spelling in a website",
+    "main": "dist/index.js",
+    "license": "MIT",
+    "bin": {
+        "spell-check-website": "./bin"
+    },
+    "scripts": {
+        "start": "nodemon src/index.js --watch src -I",
+        "dev": "node src/index.js",
+        "build": "run-s build:clean build:create build:cli",
+        "build:create": "babel src/index.js --out-dir dist",
+        "build:cli": "babel src/cli.js --out-dir dist",
+        "build:clean": "rimraf dist",
+        "t": "node src/cli.js check \"https://spellll.surge.sh\""
+    },
+    "dependencies": {
+        "node-spider": "agrublev/node-spider",
+        "spell-checker-js": "^1.2.6",
+        "spelling": "^2.0.2",
+        "cac": "^6.6.1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.12.17",
+        "@babel/core": "^7.12.17",
+        "@babel/node": "^7.12.17",
+        "@babel/plugin-proposal-class-properties": "^7.12.13",
+        "@babel/plugin-syntax-class-properties": "^7.12.13",
+        "@babel/plugin-transform-runtime": "^7.12.17",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/runtime": "^7.12.18",
+        "domain-based-spellchecker": "^1.0.4",
+        "nodemon": "^2.0.4",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.2"
+    },
+    "keywords": []
+}
